@@ -60,13 +60,13 @@
         "*.asset": "yaml",
         "*.meta": "yaml",
         "*.prefab": "yaml",
-        "*.unity": "yaml",
+        "*.unity": "yaml"
     },
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Unity_2026-1_oaz.slnx",
+    "dotnet.defaultSolution": "2026-1-oaz-unitystudy.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
