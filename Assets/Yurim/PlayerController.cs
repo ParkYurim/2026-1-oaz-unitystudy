@@ -29,10 +29,10 @@ public class PlayerController : MonoBehaviour
     {
         if(Keyboard.current.spaceKey.wasPressedThisFrame&&isGrounded()){
             // 플레이어의 중심에서 아래로 ray를 쏴서 바닥과 충돌하는지 확인
-            if(Physics.Raycast(transform.position, Vector3.down, rayDistance, floorLayer)){
-                rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z); //점프하기 전에 y축 속도를 초기화
-                rigid.AddForce(Vector3.up*jumpPower, ForceMode.Impulse);
-            }
+            
+            rigid.linearVelocity = new Vector3(rigid.linearVelocity.x, 0, rigid.linearVelocity.z); //점프하기 전에 y축 속도를 초기화
+            rigid.AddForce(Vector3.up*jumpPower, ForceMode.Impulse);
+            
         }
     }
 
@@ -43,12 +43,10 @@ public class PlayerController : MonoBehaviour
         float v=Keyboard.current.wKey.isPressed ? 1f : Keyboard.current.sKey.isPressed ? -1f : 0f;
         Vector3 force = new Vector3(h,0,v);
         rigid.AddForce(force, ForceMode.Impulse);
-
         if(rigid.linearVelocity.magnitude > maxSpeed){
             rigid.linearVelocity = rigid.linearVelocity.normalized * maxSpeed;
             //rigid.velocity.normalized는 방향을 유지한 채로 속도만 조절하도록 하는 명령어
         }
-
     }
     // 트리거가 발생했을 때 호출되는 함수
     void OnTriggerEnter(Collider other){
